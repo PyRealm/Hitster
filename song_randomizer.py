@@ -8,10 +8,3 @@ def random_song(previous_songs):
             random_number = random.randint(0, len(lines) - 1)
         previous_songs.append(random_number)
         return lines[random_number].strip()
-
-
-# previous_songs=[-1]
-# a=random_song(previous_songs)
-# print(a)
-# rok,tytul,autor,dzwiek=a.split(';')
-# print(rok,tytul,autor,dzwiek)
