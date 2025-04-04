@@ -6,8 +6,8 @@ import requests.exceptions
 import socket
 
 # Define your Spotify Developer credentials
-CLIENT_ID = 'cbcafa52a97a4f8daddfe93a20ebba5d'
-CLIENT_SECRET = '0a9cb6fd4e8f4876bf27645e8e611b95'
+CLIENT_ID = 'YOUR_CLIENT_ID'
+CLIENT_SECRET = 'YOUR_CLIENT_SECRET'
 REDIRECT_URI = 'http://localhost:8888/callback/'
 
 # Authenticate with Spotify
