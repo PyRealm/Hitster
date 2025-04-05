@@ -7,8 +7,8 @@ import socket
 import spotify_credentials
 
 # Define your Spotify Developer credentials
-CLIENT_ID = 'spotify_credentials.CLIENT_ID'
-CLIENT_SECRET = 'spotify_credentials.CLIENT_SECRET'
+CLIENT_ID = spotify_credentials.CLIENT_ID
+CLIENT_SECRET = spotify_credentials.CLIENT_SECRET
 REDIRECT_URI = 'http://localhost:8888/callback/'
 
 # Authenticate with Spotify
