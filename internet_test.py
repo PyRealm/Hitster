@@ -51,5 +51,4 @@ spotify_url = 'https://open.spotify.com/track/4jPy3l0RUwlUI9T5XHBW2m?si=32937fb5
 play_track(spotify_url)
 import time
 time.sleep(3)
-# Call stop_playback to stop the playback
 stop_playback()

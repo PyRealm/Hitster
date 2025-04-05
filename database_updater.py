@@ -43,12 +43,13 @@ def write_to_file(songs, filename):
             release_year, track_name, artist_name, spotify_url = song
             file.write(f"{release_year};{track_name};{artist_name};{spotify_url}\n")
 
-if __name__ == '__main__':
-    # Replace with your Spotify playlist ID
-    playlist_id = '6yGbNb3Hq8deDQDDEuKC1V'
-    
-    tracks = get_playlist_tracks(playlist_id)
+if __name__ == '__main__':    
+    tracks = get_playlist_tracks(spotify_credentials.playlist_id)
+    if not tracks:
+        print("Nie znaleziono żadnych utworów w tej playliście.")
+    else:
+        print(f"Znaleziono {len(tracks)} utworów w playliście.")
     songs = display_tracks_info(tracks)
     songs_in_order= sorted(songs, key=lambda x: x[0], reverse=True)
-    write_to_file(songs_in_order, './MusicFiles/dane.txt')
+    write_to_file(songs_in_order, spotify_credentials.writing_path)
     print('Dane zostały poprawnie zapisane')

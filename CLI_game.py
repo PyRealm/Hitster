@@ -56,8 +56,6 @@ while game_stopper!=True:
     if is_correct_answer(round_players_timeline,guess,year)==True:
         print("Prawidłowa odpowiedź")
         print(f'To był utwór "{title}" wykonany przez {author} z roku {year}')
-        # print(add_song(players_timeline[current_player],year,title,author))
-        # print(players_timeline[current_player])
         players_timeline[current_player]=add_song(players_timeline[current_player],year,title,author)
     elif is_correct_answer(round_players_timeline,guess,year)==False:
         print("Zła odpowiedź")

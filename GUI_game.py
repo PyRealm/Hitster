@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.simpledialog as simpledialog
-import css
+import GUI_CSS
 import time 
 
 from song_player import play_song
@@ -16,7 +16,7 @@ from game_functions import stop_game
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Classes~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class RoundedButton(tk.Canvas):
-    def __init__(self, master=None, text:str="", radius=css.menu_button_radius, btnforeground=css.font, btnbackground=css.button, border_color=css.border, border_width=css.menu_button_border_width, buttonWidth=css.menu_button_width, buttonHeight=css.menu_button_height, clicked=None, *args, **kwargs):
+    def __init__(self, master=None, text:str="", radius=GUI_CSS.menu_button_radius, btnforeground=GUI_CSS.font, btnbackground=GUI_CSS.button, border_color=GUI_CSS.border, border_width=GUI_CSS.menu_button_border_width, buttonWidth=GUI_CSS.menu_button_width, buttonHeight=GUI_CSS.menu_button_height, clicked=None, *args, **kwargs):
         self.border_width = border_width
         self.border_color = border_color
 
@@ -33,7 +33,7 @@ class RoundedButton(tk.Canvas):
         # Draw button inside border
         self.button_rect = self.round_rectangle(border_width*2, border_width*2, buttonWidth, buttonHeight, radius=radius-border_width, fill=btnbackground, outline="")
         
-        self.text = self.create_text((buttonWidth // 2 + border_width, buttonHeight // 2 + border_width), text=text, fill=btnforeground, font=(css.font_name, int(buttonHeight*0.35)), justify="center")
+        self.text = self.create_text((buttonWidth // 2 + border_width, buttonHeight // 2 + border_width), text=text, fill=btnforeground, font=(GUI_CSS.font_name, int(buttonHeight*0.35)), justify="center")
        
         # Bind the tags to the elements
         self.tag_bind(self.button_rect, "<ButtonPress-1>", self.on_click)
@@ -75,7 +75,7 @@ class RoundedButton(tk.Canvas):
         self.itemconfig(self.button_rect, fill=self.btnbackground)
 
     def on_hover(self, event):
-        self.itemconfig(self.button_rect, fill=css.hover)
+        self.itemconfig(self.button_rect, fill=GUI_CSS.hover)
 
     def on_leave(self, event):
         self.itemconfig(self.button_rect, fill=self.btnbackground)
@@ -102,8 +102,8 @@ def players_names_input(players_quantity, root, players_names):
         button_label.config(text=f"Podaj imię {counter_value + 1} gracza")
 
     # Create a label
-    button_label = tk.Label(root, text=f"Podaj imię 1 gracza", font=(css.font_name, 24), bg=css.main, fg=css.font)
-    button_label.pack(pady=(css.menu_pady, css.pady))
+    button_label = tk.Label(root, text=f"Podaj imię 1 gracza", font=(GUI_CSS.font_name, 24), bg=GUI_CSS.main, fg=GUI_CSS.font)
+    button_label.pack(pady=(GUI_CSS.menu_pady, GUI_CSS.pady))
 
     # Validation to limit the entry to 15 characters
     def validate_entry(text):
@@ -113,24 +113,24 @@ def players_names_input(players_quantity, root, players_names):
     vcmd = (root.register(validate_entry), '%P')
 
     # Create a standard rectangular entry field with a pre-filled space
-    players_name_entry = tk.Entry(root, font=(css.font_name, 20), bg=css.button, fg=css.font, justify="center", validate="key", validatecommand=vcmd)
-    players_name_entry.pack(pady=css.pady)
+    players_name_entry = tk.Entry(root, font=(GUI_CSS.font_name, 20), bg=GUI_CSS.button, fg=GUI_CSS.font, justify="center", validate="key", validatecommand=vcmd)
+    players_name_entry.pack(pady=GUI_CSS.pady)
     players_name_entry.focus_set()
 
     # Create a button to submit the input
     submit_players_name_button = RoundedButton(
         root, 
         text="DALEJ", 
-        radius=css.menu_button_radius, 
-        btnbackground=css.button, 
-        btnforeground=css.font, 
-        border_color=css.border, 
-        border_width=css.menu_button_border_width, 
-        buttonWidth=css.menu_button_width, 
-        buttonHeight=css.menu_button_height, 
+        radius=GUI_CSS.menu_button_radius, 
+        btnbackground=GUI_CSS.button, 
+        btnforeground=GUI_CSS.font, 
+        border_color=GUI_CSS.border, 
+        border_width=GUI_CSS.menu_button_border_width, 
+        buttonWidth=GUI_CSS.menu_button_width, 
+        buttonHeight=GUI_CSS.menu_button_height, 
         clicked=lambda: add_to_players_names(players_name_entry, players_names, players_quantity, submit_players_name_button.counter, update_player_label)
     )
-    submit_players_name_button.pack(pady=css.pady)
+    submit_players_name_button.pack(pady=GUI_CSS.pady)
 
     # Function to simulate the button click
     def simulate_button_click(event=None):
@@ -172,23 +172,23 @@ def start_sequence():
     clear_window(root)
     
     # Create label for entry field
-    players_number_label = tk.Label(root, text="Podaj liczbę graczy", font=(css.font_name, 24), bg=css.main, fg=css.font)
-    players_number_label.pack(pady=(css.menu_pady,css.pady))
+    players_number_label = tk.Label(root, text="Podaj liczbę graczy", font=(GUI_CSS.font_name, 24), bg=GUI_CSS.main, fg=GUI_CSS.font)
+    players_number_label.pack(pady=(GUI_CSS.menu_pady,GUI_CSS.pady))
 
     # Create rectangular entry field for the initial number input
-    players_number_entry = tk.Entry(root, font=(css.font_name, 20), bg=css.button, fg=css.font, justify="center")
-    players_number_entry.pack(pady=css.pady)
+    players_number_entry = tk.Entry(root, font=(GUI_CSS.font_name, 20), bg=GUI_CSS.button, fg=GUI_CSS.font, justify="center")
+    players_number_entry.pack(pady=GUI_CSS.pady)
     players_number_entry.focus_set()
 
     # Create an error label for displaying validation messages
-    error_label = tk.Label(root, text="", fg="red", bg=css.main, font=(css.font_name, 12))
+    error_label = tk.Label(root, text="", fg="red", bg=GUI_CSS.main, font=(GUI_CSS.font_name, 12))
     error_label.pack(pady=0)
 
     # Create the start button
     players_number_input_button = RoundedButton(root, 
-    text="DALEJ", radius=css.menu_button_radius, btnbackground=css.button, btnforeground=css.font, border_color=css.border, border_width=css.menu_button_border_width, buttonWidth=css.menu_button_width, buttonHeight=css.menu_button_height,
+    text="DALEJ", radius=GUI_CSS.menu_button_radius, btnbackground=GUI_CSS.button, btnforeground=GUI_CSS.font, border_color=GUI_CSS.border, border_width=GUI_CSS.menu_button_border_width, buttonWidth=GUI_CSS.menu_button_width, buttonHeight=GUI_CSS.menu_button_height,
     clicked=lambda: players_number_input(players_number_entry, players_names, root, error_label))
-    players_number_input_button.pack(pady=css.pady)
+    players_number_input_button.pack(pady=GUI_CSS.pady)
     
     # Function to simulate the button click
     def simulate_button_click(event=None):
@@ -214,10 +214,10 @@ def create_players_round(number_of_buttons, players_timeline, current_round, pla
             return 70
         return 359 // number_of_buttons
     buttonHeight = height_of_buttons(number_of_buttons)
-    buttonWidth = css.menu_button_width
+    buttonWidth = GUI_CSS.menu_button_width
 
     # Create a frame to contain the buttons and labels
-    button_frame = tk.Frame(root, bg=css.main)
+    button_frame = tk.Frame(root, bg=GUI_CSS.main)
     button_frame.pack(expand=True)
     
     # Lower the button_frame to the background layer
@@ -228,11 +228,11 @@ def create_players_round(number_of_buttons, players_timeline, current_round, pla
         button = RoundedButton(
             button_frame,
             text=f"Pozycja {i + 1}",
-            radius=css.menu_button_radius,
-            btnbackground=css.button,
-            btnforeground=css.font,
-            border_color=css.border,
-            border_width=css.menu_button_border_width,
+            radius=GUI_CSS.menu_button_radius,
+            btnbackground=GUI_CSS.button,
+            btnforeground=GUI_CSS.font,
+            border_color=GUI_CSS.border,
+            border_width=GUI_CSS.menu_button_border_width,
             buttonWidth=buttonWidth,
             buttonHeight=buttonHeight,
             clicked=lambda i=i: guess_var.set(i + 1)  # Set the clicked button index
@@ -242,9 +242,9 @@ def create_players_round(number_of_buttons, players_timeline, current_round, pla
         button_label = tk.Label(
             button_frame,
             text=f"{players_timeline[current_player][i][0]} {players_timeline[current_player][i][1]} {players_timeline[current_player][i][2]}",
-            font=(css.font_name, int(buttonHeight * 0.3)),
-            bg=css.main,
-            fg=css.font
+            font=(GUI_CSS.font_name, int(buttonHeight * 0.3)),
+            bg=GUI_CSS.main,
+            fg=GUI_CSS.font
         )
 
         if number_of_buttons >= 8:
@@ -256,11 +256,11 @@ def create_players_round(number_of_buttons, players_timeline, current_round, pla
     button = RoundedButton(
         button_frame,
         text=f"Pozycja {number_of_buttons + 1}",
-        radius=css.menu_button_radius,
-        btnbackground=css.button,
-        btnforeground=css.font,
-        border_color=css.border,
-        border_width=css.menu_button_border_width,
+        radius=GUI_CSS.menu_button_radius,
+        btnbackground=GUI_CSS.button,
+        btnforeground=GUI_CSS.font,
+        border_color=GUI_CSS.border,
+        border_width=GUI_CSS.menu_button_border_width,
         buttonWidth=buttonWidth,
         buttonHeight=buttonHeight,
         clicked=lambda: guess_var.set(number_of_buttons + 1)
@@ -280,7 +280,7 @@ def game_start(players_timeline, players_names, previous_songs, current_player, 
             def on_start_song_button_click():
                 play_song(song)
                 song_started_var.set(True)
-            start_song_button = RoundedButton(root, text="Puść piosenkę", radius=css.menu_button_radius, btnbackground=css.button, btnforeground=css.font, border_color=css.border, border_width=css.menu_button_border_width, buttonWidth=330, buttonHeight=120, 
+            start_song_button = RoundedButton(root, text="Puść piosenkę", radius=GUI_CSS.menu_button_radius, btnbackground=GUI_CSS.button, btnforeground=GUI_CSS.font, border_color=GUI_CSS.border, border_width=GUI_CSS.menu_button_border_width, buttonWidth=330, buttonHeight=120, 
             clicked=on_start_song_button_click)
             start_song_button.pack(padx=20, pady=(340,20))
             root.wait_variable(song_started_var)
@@ -308,14 +308,14 @@ def game_start(players_timeline, players_names, previous_songs, current_player, 
         if is_correct_answer(round_players_timeline,guess,year)==True:
             clear_window(root)
             # Layout
-            correct_answer_label = tk.Label(root, text="Prawidłowa odpowiedź", font=(css.font_name, 36), bg=css.main, fg=css.font)
-            correct_answer_label.pack(pady=(css.menu_pady+70, css.pady))
+            correct_answer_label = tk.Label(root, text="Prawidłowa odpowiedź", font=(GUI_CSS.font_name, 36), bg=GUI_CSS.main, fg=GUI_CSS.font)
+            correct_answer_label.pack(pady=(GUI_CSS.menu_pady+70, GUI_CSS.pady))
             wrap_length = int(window_width * 0.9)
             answer_label = tk.Label(
                 root, text=f"To był utwór {title} wykonany przez {author} z {year} roku",
-                font=(css.font_name, 28), bg=css.main, fg=css.font, wraplength=wrap_length
+                font=(GUI_CSS.font_name, 28), bg=GUI_CSS.main, fg=GUI_CSS.font, wraplength=wrap_length
             )
-            answer_label.pack(pady=css.pady)
+            answer_label.pack(pady=GUI_CSS.pady)
 
             
             # Add the song to the player's timeline
@@ -332,14 +332,14 @@ def game_start(players_timeline, players_names, previous_songs, current_player, 
             clear_window(root)
             # Layout
             # layout(players_names,current_player,current_round)
-            wrong_answer_label = tk.Label(root, text="Zła odpowiedź", font=(css.font_name, 36), bg=css.main, fg=css.font)
-            wrong_answer_label.pack(pady=(css.menu_pady+70, css.pady))
+            wrong_answer_label = tk.Label(root, text="Zła odpowiedź", font=(GUI_CSS.font_name, 36), bg=GUI_CSS.main, fg=GUI_CSS.font)
+            wrong_answer_label.pack(pady=(GUI_CSS.menu_pady+70, GUI_CSS.pady))
             wrap_length = int(window_width * 0.9)
             answer_label = tk.Label(
                 root, text=f"To był utwór {title} wykonany przez {author} z {year} roku",
-                font=(css.font_name, 28), bg=css.main, fg=css.font, wraplength=wrap_length
+                font=(GUI_CSS.font_name, 28), bg=GUI_CSS.main, fg=GUI_CSS.font, wraplength=wrap_length
             )
-            answer_label.pack(pady=css.pady)
+            answer_label.pack(pady=GUI_CSS.pady)
             
             # Force update to render the labels
             root.update()
@@ -357,45 +357,45 @@ def game_start(players_timeline, players_names, previous_songs, current_player, 
     
     clear_window(root)        
     # Layout
-    end_game_label = tk.Label(root, text="Koniec gry!", font=(css.font_name, 36), bg=css.main, fg=css.font)
-    end_game_label.pack(pady=(css.menu_pady+70, css.pady))
-    winner_label = tk.Label(root, text=f"Wygrał {players_names[current_player-1]}", font=(css.font_name, 28), bg=css.main, fg=css.font)
-    winner_label.pack(pady=css.pady)
+    end_game_label = tk.Label(root, text="Koniec gry!", font=(GUI_CSS.font_name, 36), bg=GUI_CSS.main, fg=GUI_CSS.font)
+    end_game_label.pack(pady=(GUI_CSS.menu_pady+70, GUI_CSS.pady))
+    winner_label = tk.Label(root, text=f"Wygrał {players_names[current_player-1]}", font=(GUI_CSS.font_name, 28), bg=GUI_CSS.main, fg=GUI_CSS.font)
+    winner_label.pack(pady=GUI_CSS.pady)
 
 def layout(players_names, current_player, current_round):
     # Create menu button in the right bottom corner
     menu_button = RoundedButton(
         root, 
         text="MENU", 
-        radius=css.menu_button_radius, 
-        btnbackground=css.button, 
-        btnforeground=css.font, 
-        border_color=css.border, 
-        border_width=css.menu_button_border_width, 
-        buttonWidth=css.menu_button_width, 
-        buttonHeight=css.menu_button_height, 
+        radius=GUI_CSS.menu_button_radius, 
+        btnbackground=GUI_CSS.button, 
+        btnforeground=GUI_CSS.font, 
+        border_color=GUI_CSS.border, 
+        border_width=GUI_CSS.menu_button_border_width, 
+        buttonWidth=GUI_CSS.menu_button_width, 
+        buttonHeight=GUI_CSS.menu_button_height, 
         clicked=main_menu
     )
     menu_button.place(x=root.winfo_screenwidth() - 220, y=root.winfo_screenheight() - 120)
 
     # Create a single frame to contain all components with a border and background color
-    container_frame = tk.Frame(root, bg=css.border, bd=css.menu_button_border_width)
+    container_frame = tk.Frame(root, bg=GUI_CSS.border, bd=GUI_CSS.menu_button_border_width)
     container_frame.place(x=5, y=5)  # Adjust the position as needed
 
     # Inside the frame, create a sub-frame for content with the desired background color
-    content_frame = tk.Frame(container_frame, bg=css.button)
-    content_frame.pack(padx=css.menu_button_border_width, pady=css.menu_button_border_width)
+    content_frame = tk.Frame(container_frame, bg=GUI_CSS.button)
+    content_frame.pack(padx=GUI_CSS.menu_button_border_width, pady=GUI_CSS.menu_button_border_width)
 
     # Add round label
-    round_label = tk.Label(content_frame, text=f"Tura {current_round}", font=(css.font_name, 32), bg=css.button, fg=css.font)
+    round_label = tk.Label(content_frame, text=f"Tura {current_round}", font=(GUI_CSS.font_name, 32), bg=GUI_CSS.button, fg=GUI_CSS.font)
     round_label.grid(row=0, column=0, sticky="w", padx=(5, 0), pady=5)
 
     # Add queue label
-    queue_label = tk.Label(content_frame, text=f"Kolejka gracza:", font=(css.font_name, 32), bg=css.button, fg=css.font)
+    queue_label = tk.Label(content_frame, text=f"Kolejka gracza:", font=(GUI_CSS.font_name, 32), bg=GUI_CSS.button, fg=GUI_CSS.font)
     queue_label.grid(row=1, column=0, sticky="w", padx=(5, 0), pady=5)
 
     # Add players label
-    players_label = tk.Label(content_frame, text=f"{players_names[current_player]}", font=(css.font_name, 32), bg=css.button, fg=css.font)
+    players_label = tk.Label(content_frame, text=f"{players_names[current_player]}", font=(GUI_CSS.font_name, 32), bg=GUI_CSS.button, fg=GUI_CSS.font)
     players_label.grid(row=2, column=0, sticky="w", padx=(5, 0), pady=5)
 
     # Function to hide the container when the mouse is over it
@@ -426,14 +426,14 @@ def layout(players_names, current_player, current_round):
 def main_menu():
     clear_window(root)
     
-    end_game_label = tk.Label(root, text="Year That Song", font=(css.font_name, 72), bg=css.main, fg=css.font)
+    end_game_label = tk.Label(root, text="Year That Song", font=(GUI_CSS.font_name, 72), bg=GUI_CSS.main, fg=GUI_CSS.font)
     end_game_label.pack(pady=100)
 
-    start_button = RoundedButton(root, text="START", radius=css.menu_button_radius, btnbackground=css.button, btnforeground=css.font, border_color=css.border, border_width=css.menu_button_border_width, buttonWidth=css.menu_button_width, buttonHeight=css.menu_button_height, clicked=start_sequence)
-    start_button.pack(padx=20, pady=(10,css.pady+5))
+    start_button = RoundedButton(root, text="START", radius=GUI_CSS.menu_button_radius, btnbackground=GUI_CSS.button, btnforeground=GUI_CSS.font, border_color=GUI_CSS.border, border_width=GUI_CSS.menu_button_border_width, buttonWidth=GUI_CSS.menu_button_width, buttonHeight=GUI_CSS.menu_button_height, clicked=start_sequence)
+    start_button.pack(padx=20, pady=(10,GUI_CSS.pady+5))
 
-    exit_button = RoundedButton(root, text="EXIT", radius=css.menu_button_radius, btnbackground=css.button, btnforeground=css.font, border_color=css.border, border_width=css.menu_button_border_width, buttonWidth=css.menu_button_width, buttonHeight=css.menu_button_height, clicked=close_sequence)
-    exit_button.pack(padx=20, pady=css.pady+5)
+    exit_button = RoundedButton(root, text="EXIT", radius=GUI_CSS.menu_button_radius, btnbackground=GUI_CSS.button, btnforeground=GUI_CSS.font, border_color=GUI_CSS.border, border_width=GUI_CSS.menu_button_border_width, buttonWidth=GUI_CSS.menu_button_width, buttonHeight=GUI_CSS.menu_button_height, clicked=close_sequence)
+    exit_button.pack(padx=20, pady=GUI_CSS.pady+5)
 
 def clear_window(root):
     for widget in root.winfo_children():
@@ -442,6 +442,6 @@ def clear_window(root):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Main Code~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 root = tk.Tk()
 root.attributes('-fullscreen', True)
-root.configure(background=css.main)
+root.configure(background=GUI_CSS.main)
 main_menu()
 root.mainloop()
