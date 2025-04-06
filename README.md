@@ -75,17 +75,43 @@ Hitster/
 
 ### Command Line Version
 
-#### Main Menu
+#### Welcome Page
 
 ![Main Menu](screenshots/CLI_Welcome_Page.png.png)
 
-#### Gameplay
+#### Adding Players
 
-![Gameplay](screenshots/Gameplay.png)
+![Adding Players](screenshots/CLI_Adding_Players.png)
 
-### End Screen
+#### Round View
 
-![End Screen](screenshots/EndScreen.png)
+![Round View](screenshots/CLI_First_Round.png)
+
+#### Correct Answer
+
+![Correct Answer](screenshots/CLI_Correct_Answer.png)
+
+### Graphical Interface Version
+
+#### Welcome Page
+
+![Main Menu](screenshots/GUI_Welcome_Page.png.png)
+
+#### Adding Players
+
+![Adding Players](screenshots/GUI_Adding_Players_1.png)
+
+#### Adding Players 2
+
+![Adding Players 2](screenshots/GUI_Adding_Players_2.png)
+
+#### Round View
+
+![Round View](screenshots/GUI_First_Round.png)
+
+#### Correct Answer
+
+![Correct Answer](screenshots/GUI_Correct_Answer.png)
 
 ---
 
@@ -93,8 +119,37 @@ Hitster/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YourUsername/Hitster
+    git clone https://github.com/PyRealm/Hitster
    ```
+2. Install the required Python libraries:
+   ```bash
+    pip install spotipy
+   ```
+3. Open Spotify App
+4. Add your Spotify API credentials in spotify_credentials.py.
+5. Run the game:
+   ```bash
+    python GUI_game.py
+   ```
+
+### Optionals:
+
+6. To test if everything is working run:
+   ```bash
+    python internet_test.py
+   ```
+7. To update the database for the playlist of your choice:
+   7.1. Change playlist_id in spotify_credentials.py
+   7.2. Run file:
+   ```bash
+    python database_updater.py
+   ```
+8. To run the game in Command Line Version run:
+   ```bash
+    python CLI_game.py
+   ```
+9. To change the number of songs needed to win go to spotify_credentials.py and change "number_of_songs_to_win" variable
+10. To change file from which the songs are played go to spotify_credentials.py and change "writing_path" variable
 
 ---
 
