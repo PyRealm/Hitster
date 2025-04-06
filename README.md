@@ -18,23 +18,22 @@ Hitster is a personal project designed to showcase the fundamentals of **Python*
 ## 📂 Project Structure
 
 Hitster/
-│
-├── CLI_game.py # Command-line version of the game
-├── GUI_game.py # Graphical version of the game
-├── GUI_CSS.py # Styling for the GUI
-├── game_functions.py # Core game logic and functions
-├── song_player.py # Handles Spotify playback
-├── song_randomizer.py # Randomizes song selection
-├── database_updater.py # Updates the song database using Spotify API
-├── internet_test.py # Tests internet connectivity and Spotify API
-├── spotify_credentials.py # Spotify API credentials and settings
-├── MusicFiles/ # Contains song data files
-│ └── dane.txt
-│
-├── screenshots/ # Screenshots of the game
-├── README.md # Project documentation
-├── LICENSE # License file
-└── .gitignore # Git ignore file
+├── CLI_game.py              # Command-line version of the game
+├── GUI_game.py              # Graphical version of the game
+├── GUI_CSS.py               # Styling for the GUI
+├── game_functions.py        # Core game logic and functions
+├── song_player.py           # Handles Spotify playback
+├── song_randomizer.py       # Randomizes song selection
+├── database_updater.py      # Updates the song database using Spotify API
+├── internet_test.py         # Tests internet connectivity and Spotify API
+├── spotify_credentials.py   # Spotify API credentials and settings
+├── MusicFiles/              # Contains song data files
+│   └── dane.txt
+├── screenshots/             # Screenshots of the game
+├── README.md                # Project documentation
+├── LICENSE                  # License file
+└── .gitignore               # Git ignore file
+
 
 ---
 
