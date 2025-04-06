@@ -11,7 +11,7 @@ Hitster is a personal project designed to showcase the fundamentals of **Python*
 - **Dynamic Gameplay**: Randomized song selection ensures unique experiences every time.
 - **Multiplayer Support**: Allows multiple players to compete in guessing the correct song timeline.
 - **Customizable Settings**: Easily adjust the number of songs required to win.
-- **Personal Playlist Support**: Easily add your own Spotify playlists to customize the game experience.
+- **Personal Playlist Support**: Allows you to easily add your own Spotify playlists to customize the game experience.
 
 ---
 
@@ -139,7 +139,7 @@ Hitster/
     python internet_test.py
    ```
 7. To update the database for the playlist of your choice:
-   7.1. Change playlist_id in spotify_credentials.py
+   7.1. Change playlist_id in spotify_credentials.py.
    7.2. Run file:
    ```bash
     python database_updater.py
@@ -148,8 +148,8 @@ Hitster/
    ```bash
     python CLI_game.py
    ```
-9. To change the number of songs needed to win go to spotify_credentials.py and change "number_of_songs_to_win" variable
-10. To change file from which the songs are played go to spotify_credentials.py and change "writing_path" variable
+9. To change the number of songs needed to win go to spotify_credentials.py and change "number_of_songs_to_win" variable.
+10. To change file from which the songs are played go to spotify_credentials.py and change "writing_path" variable.
 
 ---
 
