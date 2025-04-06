@@ -77,7 +77,7 @@ Hitster/
 
 #### Welcome Page
 
-![Main Menu](screenshots/CLI_Welcome_Page.png.png)
+![Main Menu](screenshots/CLI_Welcome_Page.png)
 
 #### Adding Players
 
@@ -95,7 +95,7 @@ Hitster/
 
 #### Welcome Page
 
-![Main Menu](screenshots/GUI_Welcome_Page.png.png)
+![Main Menu](screenshots/GUI_Welcome_Page.png)
 
 #### Adding Players
 
