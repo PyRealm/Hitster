@@ -17,6 +17,7 @@ Hitster is a personal project designed to showcase the fundamentals of **Python*
 
 ## 📂 Project Structure
 
+```plaintext
 Hitster/
 ├── CLI_game.py              # Command-line version of the game
 ├── GUI_game.py              # Graphical version of the game
@@ -33,7 +34,7 @@ Hitster/
 ├── README.md                # Project documentation
 ├── LICENSE                  # License file
 └── .gitignore               # Git ignore file
-
+```
 
 ---
 
